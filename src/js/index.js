@@ -1,14 +1,17 @@
 $(document).ready(function(){
 
 
-
-   $('#imgPrew .slide-box-picture-preview-item').on('click', function () {
+   
+   $('.slide-box-picture-preview-item').on('click', function () {
       var imgPath;
-      imgPath = $(this).attr('data-img-path');
-      $('#imgHolder img').attr('src', imgPath);
+      imgPath = $(this).find('img').attr('src');
+      $(this).parent().siblings('.slide-box-picture-main-pic').find('img').attr('src', imgPath);
       $(this).addClass('active-pic').siblings().removeClass('active-pic');
    });
 
+
+
+   
 
 
    $(".owl-carousel").owlCarousel({
@@ -17,7 +20,7 @@ $(document).ready(function(){
       items: 1,
       autoWidth: true,
       autoplayHoverPause: true,
-      autoplay: true,
+      autoplay: false,
       mouseDrag: false,
       margin: 100,
       dots: false,
